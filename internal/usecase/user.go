@@ -10,7 +10,7 @@ import (
 type UserUsecase interface {
 	GetAll() ([]entity.User, error)
 	GetByID(id string) (entity.User, error)
-	Update(id string, name string, email string) error
+	Update(id string, name string, email string, document string) error
 	Delete(id string) error
 }
 
@@ -46,7 +46,7 @@ func (uc *userUsecase) GetByID(id string) (entity.User, error) {
 	return *user, nil
 }
 
-func (uc *userUsecase) Update(id string, name string, email string) error {
+func (uc *userUsecase) Update(id string, name string, email string, document string) error {
 	// Validate ID
 	user := &entity.User{}
 	err := uc.repo.GetById(user, id)
@@ -57,6 +57,7 @@ func (uc *userUsecase) Update(id string, name string, email string) error {
 	// Update Data
 	user.Name = name
 	user.Email = email
+	user.Document = &document
 	if err := uc.repo.Update(user, id); err != nil {
 		return errors.New("failed to update user")
 	}

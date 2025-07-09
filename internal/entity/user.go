@@ -1,6 +1,10 @@
 package entity
 
-import "gorm.io/gorm"
+import (
+	"mime/multipart"
+
+	"gorm.io/gorm"
+)
 
 type User struct {
 	Name     string
@@ -12,7 +16,7 @@ type User struct {
 }
 
 type UserUpdateBody struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Name     string               `form:"name"`
+	Email    string               `form:"email"`
+	Document multipart.FileHeader `form:"document"`
 }

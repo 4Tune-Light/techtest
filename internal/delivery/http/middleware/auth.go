@@ -3,6 +3,7 @@ package mw
 import (
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -48,17 +49,18 @@ func RequireAuth(role string) gin.HandlerFunc {
 
 			// Validate User ID
 			uid := claims["id"].(float64)
+			uRole := claims["role"]
 			if uid == 0 {
 				c.AbortWithStatus(http.StatusUnauthorized)
 			}
-			c.Set("x-user-id", uid)
+			c.Set("x-user-id", strconv.FormatFloat(uid, 'f', -1, 64))
+			c.Set("x-user-role", uRole)
 
 			// Validate Role
 			if role == "" {
 				c.Next()
 			} else {
-				if claims["role"] == role {
-					c.Set("x-user-role", uid)
+				if uRole == role {
 					c.Next()
 				} else {
 					c.AbortWithStatus(http.StatusUnauthorized)
