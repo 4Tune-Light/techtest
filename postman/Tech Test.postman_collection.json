@@ -391,13 +391,24 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"new admin\",\r\n    \"email\": \"new email\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user1@email.com",
+									"type": "text"
+								},
+								{
+									"key": "document",
+									"type": "file",
+									"src": "/C:/Users/rizky/OneDrive/Pictures/ph.png"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{base_url}}/user/:id",
@@ -411,7 +422,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "4"
+									"value": "2"
 								}
 							]
 						},
@@ -425,13 +436,29 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTIxNDU4NDAsImlkIjo0LCJyb2xlIjoiYWRtaW4ifQ.OjWOwlmDXUOeE2UOii5dLNRolwzAbin7rrKlt2yPfF4",
+										"value": "{{token}}",
 										"type": "text"
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"new admin\",\r\n    \"email\": \"new email\"\r\n}",
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "user1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user1@email.com",
+											"type": "text"
+										},
+										{
+											"key": "document",
+											"type": "file",
+											"src": "/C:/Users/rizky/OneDrive/Pictures/ph.png"
+										}
+									],
 									"options": {
 										"raw": {
 											"language": "json"
@@ -450,7 +477,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "4"
+											"value": "2"
 										}
 									]
 								}
@@ -465,7 +492,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 09 Jul 2025 11:26:49 GMT"
+									"value": "Wed, 09 Jul 2025 17:46:14 GMT"
 								},
 								{
 									"key": "Content-Length",
