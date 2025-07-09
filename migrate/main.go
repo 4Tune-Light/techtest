@@ -57,19 +57,19 @@ func main() {
 	DB.Create(&entity.User{
 		Name:     "user1",
 		Email:    "user1@email.com",
-		Role:     "user1",
+		Role:     "user",
 		Password: "$2a$10$1T.cIPGMd44VBeKe8wXejuKbb0bwLogG9yCEkq1GwJJ51VQuYzCaa",
 	})
 	DB.Create(&entity.User{
 		Name:     "user2",
 		Email:    "user2@email.com",
-		Role:     "user2",
+		Role:     "user",
 		Password: "$2a$10$1T.cIPGMd44VBeKe8wXejuKbb0bwLogG9yCEkq1GwJJ51VQuYzCaa",
 	})
 	DB.Create(&entity.User{
 		Name:     "user3",
 		Email:    "user3@email.com",
-		Role:     "user3",
+		Role:     "user",
 		Password: "$2a$10$1T.cIPGMd44VBeKe8wXejuKbb0bwLogG9yCEkq1GwJJ51VQuYzCaa",
 	})
 }
